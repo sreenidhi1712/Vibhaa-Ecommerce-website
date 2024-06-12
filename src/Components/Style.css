@@ -1,0 +1,15 @@
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .bg-gradient-text {
+    background: linear-gradient(90deg, #ff7e5f, #160a01);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
