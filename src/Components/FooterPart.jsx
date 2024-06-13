@@ -1,33 +1,50 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { IoMdSend } from "react-icons/io";
 import { Context } from "./Context/Context";
 
 function FooterPart() {
   const {
-		onSent,
-		setInput,
-		input,
-	} = useContext(Context);
+    onSent,
+    setInput,
+    input,
+    setIsOpen,
+    isOpen,
+    Toggle,
+  } = useContext(Context);
   
+  const textareaRef = useRef(null);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // Reset height to auto
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set to scroll height
+    }
+  }, [input]);
+
   return (
-    <div className="h-auto w-[100%] bottom-0 fixed  flex-col bg-white ">
-      <div className="flex ml-2">
-        <input
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
-        value={input}
-        type="text"
+    <div className={`w-[100%] bottom-0 fixed flex-col ${Toggle ? `bg-white` : `bg-gray-900`} `} onClick={() => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    }}>
+      <div className="flex justify-center">
+        <textarea
+          ref={textareaRef}
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+          value={input}
           placeholder="Enter the Prompt Here"
-          className="h-auto w-[80%]  bg-slate-400 placeholder:text-white placeholder:p-2 text-white rounded-l-2xl  border-none focus:outline-none"
-        ></input>
-        <div className="w-[18%]  h-10 bg-slate-400 flex justify-end rounded-r-2xl">
-          <IoMdSend  onClick={() => {onSent()}} className="h-10 w-6 mr-2 text-white" />
+          className={`w-[80%] ${Toggle ? `bg-slate-400` : `bg-gray-700`} ${Toggle ? 'placeholder:text-white' : 'placeholder:text-gray-300'} placeholder:p-2 text-white rounded-l-2xl pl-4 border-none focus:outline-none resize-none overflow-hidden`}
+          rows={1}
+          style={{ minHeight: '2.5rem' }}
+        ></textarea>
+        <div className={`w-[18%] h-auto ${Toggle ? `bg-slate-400` : `bg-gray-700`} flex justify-end rounded-r-2xl items-center`}>
+          <IoMdSend onClick={() => { onSent() }} className={`h-10 w-6 mr-2 ${Toggle ? `text-white` : `text-gray-300`}`} />
         </div>
       </div>
-      <div>
-        <p className="text-justify text-xs mx-3">kelu may display inaccurate info, including about people,ao double-check its response. </p>
+      <div className="flex lap:justify-center justify-start">
+        <p className={`text-justify text-xs mx-3 ${Toggle ? `text-black` : `text-gray-300`} `}>kelu may display inaccurate info, including about people, so double-check its response.</p>
       </div>
     </div>
   );

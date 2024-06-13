@@ -1,21 +1,25 @@
-import { useState } from 'react'
+
 import './App.css'
 import Maincontent from './Components/Maincontent'
 import FooterPart from './Components/FooterPart'
 import ContextProvider from './Components/Context/Context'
-
+import Navbar from "./Components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-   
+
+
+  
     <ContextProvider>
-   
+        
+    <Navbar/>
      <Maincontent/>
       <FooterPart/>
+   
     </ContextProvider>
-    
+
  
   )
 }
