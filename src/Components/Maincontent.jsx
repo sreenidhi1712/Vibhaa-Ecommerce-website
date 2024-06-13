@@ -7,6 +7,7 @@ import { PiNotePencilFill } from "react-icons/pi";
 import { Context } from "./Context/Context";
 import { HiUserCircle } from "react-icons/hi2";
 import { SiGooglegemini } from "react-icons/si";
+import Navbar from "./Navbar";
 
 
 function Maincontent() {
@@ -21,6 +22,7 @@ function Maincontent() {
     setInput(promptText);
   };
   return <>
+   <Navbar/>
   <div className="h-auto w-screen bg-white mb-24">
   {!showResults? (
     <>
@@ -29,7 +31,7 @@ function Maincontent() {
         <p className="text-4xl text-slate-400">How can i Help You today?</p>
     </div>
      
-      <div className="flex overflow-x-scroll py-10 hide-scrollbar mt-18" >
+      <div className="flex overflow-x-scroll py-10 hide-scrollbar mt-18 lapl:justify-center lapl:gap-2" >
       <div onClick={() =>handleCardClick("Suggest Some Place To Visit In Kerala")} className="h-40 w-60 bg-slate-400 mt-10 ml-3 flex-shrink-0 rounded-xl" >
         <p className="m-2 text-white">Best Places to visit in karnataka in mansoon season</p>
         <FaRegCompass  className="text-white mt-20 ml-52"/>
@@ -50,7 +52,7 @@ function Maincontent() {
     </>
   ):(
     <div className="h-[90%] w-[100%] bg-white mt-20">
-						<div className=" ">
+						<div className=" ">s
             <HiUserCircle className="h-8 w-8 text-black mx-3"/>
 							<p className="text-black mx-3 mt-2">{recentPrompt}</p>
 						</div>

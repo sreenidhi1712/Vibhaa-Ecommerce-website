@@ -22,13 +22,16 @@ const Navbar = () => {
 };
 
   return (
+    <>
     <nav className="bg-slate-400 w-screen h-14 fixed top-0 z-10">
-      <div className="h-full w-full flex items-center ">
-      <CiMenuFries  className="text-white mr-1 h-6 w-10 z-20" onClick={toggleMenu}/>
-          <p className="ml-2 text-white text-3xl z-20" >KELU</p> 
-          <HiUserCircle className="text-white h-10 w-10 ml-40"/>
+      <div className="h-full w-full flex items-center justify-between">
+        <div className="flex items-center">
+        <CiMenuFries  className="text-white mr-1 h-6 w-10 z-20" onClick={toggleMenu}/>
+        <p className="ml-2 text-white text-3xl z-20" >KELU</p> 
+        </div>
+          <HiUserCircle className="text-white h-10 w-10 mr-2"/>
       </div>
-      <div className={`w-[90%] h-screen absolute top-0 bg-slate-400 flex-col transition-all duration-300 ease-linear ${isOpen?`-translate-x-0`:`-translate-x-full`}`}>
+      <div className={`w-[90%] h-screen absolute top-0 tab:w-[45%] ml:w-[60%]  bg-slate-400 flex-col transition-all duration-300 ease-linear ${isOpen?`-translate-x-0`:`-translate-x-full`}`}>
         <p className="mt-16 ml-2 text-white">Recent</p>
         <div className="flex-col h-[60%] overflow-y-scroll ">
         {prevPrompts.map((item, index) => {
@@ -46,7 +49,7 @@ const Navbar = () => {
 						})}
                 
         </div>
-        <div className="flex-col mt-2"> 
+        <div className="flex-col mt-2 ml-3"> 
             <div className="flex items-center mt-3">
                      <IoIosHelpCircleOutline className="h-5 w-5  text-white"/>
                      <p className="text-white ml-3">Help</p>
@@ -71,6 +74,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };
 

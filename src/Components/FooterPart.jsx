@@ -20,10 +20,10 @@ function FooterPart() {
         value={input}
         type="text"
           placeholder="Enter the Prompt Here"
-          className="h-auto w-[80%]  bg-slate-400 placeholder:text-white  text-white rounded-l-2xl text-center border-none focus:outline-none"
+          className="h-auto w-[80%]  bg-slate-400 placeholder:text-white placeholder:p-2 text-white rounded-l-2xl  border-none focus:outline-none"
         ></input>
-        <div className="w-[18%]  h-10 bg-slate-400  rounded-r-2xl">
-          <IoMdSend  onClick={() => {onSent()}} className="h-10 w-6 ml-6  text-white" />
+        <div className="w-[18%]  h-10 bg-slate-400 flex justify-end rounded-r-2xl">
+          <IoMdSend  onClick={() => {onSent()}} className="h-10 w-6 mr-2 text-white" />
         </div>
       </div>
       <div>
