@@ -9,9 +9,9 @@
   }
 
   .bg-gradient-text {
-    background: linear-gradient(90deg, #ff7e5f, #160a01);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(180deg, #133869, #0780f9);
+ 
+   
   }
 
   .bg-gradient-text-darkmode {

@@ -6,6 +6,7 @@ import { HiUserCircle } from "react-icons/hi2";
 import { IoSettingsOutline } from "react-icons/io5";
 import { GiBackwardTime } from "react-icons/gi";
 import { IoIosHelpCircleOutline } from "react-icons/io";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -31,44 +32,30 @@ const Navbar = () => {
     
   }}>
         <div className="flex items-center">
-        <CiMenuFries  className={`${Toggle?`text-white`:`text-gray-300`} mr-1 h-6 w-10 z-20`} onClick={toggleMenu}/>
-        <p className={`ml-2 ${Toggle?`text-white`:`text-gray-300`} text-3xl z-20`} >KELU</p> 
+        
+        <p className={`ml-2 ${Toggle?`text-white`:`text-gray-300`} text-3xl z-20`} >VIBHAA</p> 
+
         </div>
-          <HiUserCircle className={`${Toggle?`text-white`:`text-gray-300`} h-10 w-10 mr-2`}/>
+        <div className="flex">
+          <FaShoppingCart className={`${Toggle?`text-white`:`text-gray-300`} h-6 w-6 mr-2`}/>
+          <CiMenuFries  className={`${Toggle?`text-white`:`text-gray-300`} mr-1 h-6 w-10 z-20 lap:hidden`} onClick={toggleMenu}/>
+        </div>
+          
       </div>
+      {/* Side bar starts here */}
       <div className={`w-[90%] h-screen absolute top-0 tab:w-[45%] ml:w-[60%] lap:w-[25%] lapl:w-[20%] ${Toggle?`bg-slate-400`:`bg-gray-800`} flex-col transition-all duration-300 ease-linear ${isOpen?`-translate-x-0`:`-translate-x-full`}`}>
-        <p className={`${Toggle?`text-white`:`text-gray-300`} mt-16 ml-2 `}>Recent</p>
-        <div className="flex-col h-[60%] overflow-y-scroll ">
-        {prevPrompts.map((item, index) => {
-							return (
-								<div onClick={()=>{
-                                    loadPreviousPrompt(item)
-                                }} className="">
-									 <div className="flex items-center w-[90%] h-10  ml-3 mt-3 rounded-md" >
-                                     <CiChat1 className={`${Toggle?`text-white`:`text-gray-300`} ml-3 h-5 w-5 `}/>
-                                        <p className={`ml-3 ${Toggle?`text-white`:`text-gray-300`}`}>{item.slice(0, 18)}</p>
-                                     </div>
-									
-								</div>
-							);
-						})}
-                
+      <HiUserCircle className={`${Toggle?`text-white`:`text-gray-300`} mt-20 ml-5 h-7 w-7 `}/> 
+        <div className="flex-col h-auto "> 
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14 mt-3 "><p className="ml-5 text-white">Everything</p></div>
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">Women</p></div>
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">Men</p></div>
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">Childrens</p></div>
         </div>
-        <div className="flex-col mt-2 ml-3"> 
-            <div className="flex items-center mt-3">
-                     <IoIosHelpCircleOutline className={`${Toggle?`text-white`:`text-gray-300`} h-5 w-5`}/>
-                     <p className={`${Toggle?`text-white`:`text-gray-300`} ml-3`}>Help</p>
-            </div>
-            <div className="flex items-center mt-3">
-                <GiBackwardTime className="h-5 w-5  text-white"/>
-                <p className={`${Toggle?`text-white`:`text-gray-300`} ml-3`}>Activity</p>
-                
-            </div>
-            <div className="flex items-center mt-3">
-                <IoSettingsOutline className="h-5 w-5  text-white"/>
-                <p className={`${Toggle?`text-white`:`text-gray-300`} ml-3`}> Settings</p>
-            </div>
-            <div className="flex items-center mt-3">
+        <div className="flex-col mt-14 "> 
+        <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">About</p></div>
+        <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14 "><p className="ml-5 text-white">Contact</p></div>
+        </div>
+        <div className="flex items-center mt-3">
             <div className={`flex h-4 w-10 rounded-lg ml-1  transition-all ease-in duration-700 ${Toggle?` bg-gray-900`:`bg-slate-400`}`} onClick={()=>{
 					setToggle(!Toggle)
 				}}>
@@ -76,8 +63,9 @@ const Navbar = () => {
 			</div>
             <p className={`${Toggle?`text-white`:`text-gray-300`} ml-3`}>{Toggle?`Light-mode`:`Dark-Mode`}</p>
 			</div>
-        </div>
       </div>
+            
+      
     </nav>
     </>
   );

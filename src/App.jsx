@@ -1,25 +1,24 @@
 
 import './App.css'
-import Maincontent from './Components/Maincontent'
-import FooterPart from './Components/FooterPart'
+import Mainpage from './ApplicationPage/Mainpage'
 import ContextProvider from './Components/Context/Context'
-import Navbar from "./Components/Navbar";
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+
 
 function App() {
 
 
   return (
 
-
+    <BrowserRouter>
+  
   
     <ContextProvider>
-        
-    <Navbar/>
-     <Maincontent/>
-      <FooterPart/>
-   
+      <Routes>
+        <Route path="/" element={<Mainpage/>}/>
+      </Routes>
     </ContextProvider>
-
+    </BrowserRouter>
  
   )
 }
