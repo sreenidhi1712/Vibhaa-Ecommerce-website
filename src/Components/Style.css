@@ -13,3 +13,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .bg-gradient-text-darkmode {
+    background: linear-gradient(90deg, #d65b4a, #6b6462);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

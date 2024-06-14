@@ -1,4 +1,4 @@
-import React, { useState ,useContext} from "react";
+import React, { useContext} from "react";
 import { CiMenuFries } from "react-icons/ci";
 import {Context} from "./Context/Context";
 import { CiChat1 } from "react-icons/ci";
@@ -36,7 +36,7 @@ const Navbar = () => {
         </div>
           <HiUserCircle className={`${Toggle?`text-white`:`text-gray-300`} h-10 w-10 mr-2`}/>
       </div>
-      <div className={`w-[90%] h-screen absolute top-0 tab:w-[45%] ml:w-[60%]  ${Toggle?`bg-slate-400`:`bg-gray-800`} flex-col transition-all duration-300 ease-linear ${isOpen?`-translate-x-0`:`-translate-x-full`}`}>
+      <div className={`w-[90%] h-screen absolute top-0 tab:w-[45%] ml:w-[60%] lap:w-[25%] lapl:w-[20%] ${Toggle?`bg-slate-400`:`bg-gray-800`} flex-col transition-all duration-300 ease-linear ${isOpen?`-translate-x-0`:`-translate-x-full`}`}>
         <p className={`${Toggle?`text-white`:`text-gray-300`} mt-16 ml-2 `}>Recent</p>
         <div className="flex-col h-[60%] overflow-y-scroll ">
         {prevPrompts.map((item, index) => {

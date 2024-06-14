@@ -32,7 +32,7 @@ function Maincontent() {
 
   return (
     <>
-      <div className={`w-auto ${Toggle ? 'bg-white' : 'bg-gray-900'} ${showResults ? 'mb-[4.5rem] tab:mb-[3.5rem]' : 'h-screen'}`} onClick={() => {
+      <div className={`w-auto ${Toggle ? 'bg-white' : 'bg-gray-900'} ${showResults ? 'mb-[4.5rem] tab:mb-[3.5rem]' : 'h-screen '}`} onClick={() => {
         if (isOpen) {
           setIsOpen(false);
         }
@@ -40,7 +40,7 @@ function Maincontent() {
         {!showResults ? (
           <>
             <div className="mt-14 w-5/6 ml-3">
-              <p className="text-4xl bg-gradient-text">Hello Sreenidhi</p>
+              <p className={`text-4xl ${Toggle?`bg-gradient-text`:` bg-gradient-text-darkmode`} `}>Hello Sreenidhi</p>
               <p className="text-4xl text-slate-400">How can I help you today?</p>
             </div>
             <div className="flex overflow-x-scroll py-10 hide-scrollbar mt-18 lapl:justify-center lapl:gap-2">
