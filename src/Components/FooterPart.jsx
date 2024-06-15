@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useEffect } from "react";
-import { IoMdSend } from "react-icons/io";
 import { Context } from "./Context/Context";
 import { BsGlobeCentralSouthAsia } from "react-icons/bs";
 import { CiDiscount1 } from "react-icons/ci";
@@ -12,14 +11,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 
 function FooterPart() {
-  const {
-    onSent,
-    setInput,
-    input,
-    setIsOpen,
-    isOpen,
-    Toggle,
-  } = useContext(Context);
+  const {} = useContext(Context);
   
   
   return (
