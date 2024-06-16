@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <>
-    <nav className={`${Toggle?` bg-slate-400`:`bg-gray-800`} w-screen h-14 fixed top-0 z-10 bg-opacity-50`}>
+    <nav className={`${Toggle?` bg-white`:`bg-gray-800`} w-screen h-14 fixed top-0 left-0  z-10 bg-opacity-50`}>
       <div className="h-full w-full flex items-center justify-between "   onClick={()=>{
     if(isOpen){
       setIsOpen(false);
@@ -26,27 +26,34 @@ const Navbar = () => {
   }}>
         <div className="flex items-center">
         
-        <p className={`ml-2 ${Toggle?`text-white`:`text-gray-300`} text-3xl z-20`} >VIBHAA</p> 
+        <p className={`ml-2 font-bold ${Toggle?`text-black`:`text-gray-300`} text-3xl z-20`} >VIBHAA</p> 
+
+        </div>
+        <div className=" hidden lap:flex  lap:gap-8 ">
+          <p className="text-lg font-bold">EVERYTHING</p>
+          <p className="text-lg font-bold">WOMEN</p>
+          <p className="text-lg font-bold">MEN</p>
+          <p className="text-lg font-bold">ACCESSORIES</p>
 
         </div>
         <div className="flex">
-          <FaShoppingCart className={`${Toggle?`text-white`:`text-gray-300`} h-6 w-6 mr-2`}/>
-          <CiMenuFries  className={`${Toggle?`text-white`:`text-gray-300`} mr-1 h-6 w-10 z-20 lap:hidden`} onClick={toggleMenu}/>
+          <FaShoppingCart className={`${Toggle?`text-black`:`text-gray-300`} h-6 w-6 mr-2`}/>
+          <CiMenuFries  className={`${Toggle?`text-black`:`text-gray-300`}  h-6 w-10 z-20 lap:hidden`} onClick={toggleMenu}/>
         </div>
           
       </div>
       {/* Side bar starts here */}
-      <div className={`w-[90%] h-screen absolute right-0 top-0 tab:w-[45%] ml:w-[60%] lap:w-[25%] lapl:w-[20%] ${Toggle?`bg-slate-400`:`bg-gray-800`} flex-col transition-all duration-300 ease-linear ${isOpen?`-translate-x-0`:`translate-x-full`}`}>
-      <HiUserCircle className={`${Toggle?`text-white`:`text-gray-300`} mt-20 ml-5 h-7 w-7 `}/> 
+      <div className={`w-[90%] h-screen absolute  right-0 top-0 tab:w-[45%] ml:w-[60%]  ${Toggle?`bg-slate-400`:`bg-gray-800`} flex-col transition-all duration-300 ease-linear ${isOpen?`translate-x-0`:`translate-x-[110%]`}`}>
+      <HiUserCircle className={`${Toggle?`text-black`:`text-gray-300`} mt-20 ml-5 h-7 w-7 `}/> 
         <div className="flex-col h-auto "> 
-               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14 mt-3 "><p className="ml-5 text-white">Everything</p></div>
-               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">Women</p></div>
-               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">Men</p></div>
-               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">Childrens</p></div>
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14 mt-3 "><p className="ml-5 text-black">Everything</p></div>
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-black">Women</p></div>
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-black">Men</p></div>
+               <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-black">Childrens</p></div>
         </div>
         <div className="flex-col mt-14 "> 
-        <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-white">About</p></div>
-        <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14 "><p className="ml-5 text-white">Contact</p></div>
+        <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14  "><p className="ml-5 text-black">About</p></div>
+        <div className="flex justify-start items-center border-b-[0.5px] border-black w-full h-14 "><p className="ml-5 text-black">Contact</p></div>
         </div>
         <div className="flex items-center mt-3">
             <div className={`flex h-4 w-10 rounded-lg ml-1  transition-all ease-in duration-700 ${Toggle?` bg-gray-900`:`bg-slate-400`}`} onClick={()=>{
@@ -54,7 +61,7 @@ const Navbar = () => {
 				}}>
 				<div className={`h-4 w-4 rounded-full transition-all ease-in duration-500 ${Toggle?`bg-white ml-0 `:`bg-black ml-6`}`}  ></div>
 			</div>
-            <p className={`${Toggle?`text-white`:`text-gray-300`} ml-3`}>{Toggle?`Light-mode`:`Dark-Mode`}</p>
+            <p className={`${Toggle?`text-black`:`text-gray-300`} ml-3`}>{Toggle?`Light-mode`:`Dark-Mode`}</p>
 			</div>
       </div>
             
