@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
 
   const { isOpen, setIsOpen,Toggle,setToggle } = useContext(Context);
-  const Navigate = useNavigate
+  const Navigate = useNavigate();
  
 
   const toggleMenu = () => {
@@ -38,7 +38,7 @@ const Navbar = () => {
 
         </div>
         <div className="flex">
-          <FaShoppingCart className={`${Toggle?`text-black`:`text-gray-300`} h-6 w-6 mr-2`} onClick={()=>{Navigate('cart')}}/>
+          <FaShoppingCart className={`${Toggle?`text-black`:`text-gray-300`} h-6 w-6 mr-2`} onClick={()=>{Navigate('/cart')}}/>
 
           <CiMenuFries  className={`${Toggle?`text-black`:`text-gray-300`}  h-6 w-10 z-20 lap:hidden`} onClick={toggleMenu}/>
         </div>
