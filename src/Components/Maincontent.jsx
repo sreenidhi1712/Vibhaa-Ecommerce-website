@@ -39,7 +39,37 @@ function Maincontent() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true, 
-    autoplaySpeed: 400
+    autoplaySpeed: 400,
+    responsive: [
+      {
+        breakpoint: 1441, // max-width for desktop
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1024, // max-width for desktop
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768, // max-width for tablet
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 480, // max-width for mobile
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   const {
@@ -72,20 +102,20 @@ function Maincontent() {
         <div className="my-10 overflow-hidden">
         <Slider {...settings} className="">
           <div className="w-full flex flex-wrap ">
-            <TbBrandSentry className=" mx-40 mm:mx-48"/>
-            <p className="mx-36 mm:mx-44">JOHN</p>
+            <TbBrandSentry className=" mx-40 mm:mx-48 ml:mx-52 tab:mx-56 lap:mx-60 lapl:mx-64"/>
+            <p className="mx-36 mm:mx-44 ml:mx-48 tab:mx-52 lap:mx-56 lapl:mx-60">JOHN</p>
             </div>
           <div className="w-full flex">
-            <TbBrandSnapseed className="mx-40 mm:mx-48"/>
-            <p className="mx-36 mm:mx-44">RASH</p>
+            <TbBrandSnapseed className="mx-40 mm:mx-48 ml:mx-52 tab:mx-56 lap:mx-60 lapl:mx-64"/>
+            <p className="mx-36 mm:mx-44 ml:mx-48 tab:mx-52 lap:mx-56 lapl:mx-60">RASH</p>
             </div>
           <div className="w-full flex">
-            <TbBrandStocktwits className="mx-40 mm:mx-48"/>
-            <p className="mx-36 mm:mx-44">ALLAM</p>
+            <TbBrandStocktwits className="mx-40 mm:mx-48 ml:mx-52 tab:mx-56 lap:mx-60 lapl:mx-64"/>
+            <p className="mx-36 mm:mx-44 ml:mx-48 tab:mx-52 lap:mx-56 lapl:mx-60">ALLAM</p>
             </div>
           <div className="w-full flex">
-            <TbBrandSublimeText className="mx-40 mm:mx-48"/>
-            <p className="mx-36 mm:mx-44">YEPPA</p>
+            <TbBrandSublimeText className="mx-40 mm:mx-48 ml:mx-52 tab:mx-56 lap:mx-60 lapl:mx-64"/>
+            <p className="mx-36 mm:mx-44 ml:mx-48 tab:mx-52 lap:mx-56 lapl:mx-60">YEPPA</p>
             </div>
         </Slider>
         </div>
