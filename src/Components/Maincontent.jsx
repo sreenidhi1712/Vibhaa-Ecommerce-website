@@ -76,9 +76,23 @@ function Maincontent() {
     isOpen,
     setIsOpen,
     Toggle,
+    setCart,
   } = useContext(Context);
 
- 
+  const addToCart = (item) => {
+    setCart(prevCart => {
+      const findIndex = prevCart.findIndex(cartItem => cartItem.id === item.id);
+      if (findIndex >= 0) {
+        const newCart = [...prevCart];
+        newCart[findIndex].rating.quantity += 1;
+        return newCart;
+      } else {
+        return [...prevCart, { ...item, rating: { ...item.rating, quantity: 1 } }];
+      }
+    });
+  };
+
+
 
   return (
     <>
@@ -152,7 +166,7 @@ function Maincontent() {
             {data.map((items)=>{
               return <>
             {/* {items.category === "women's clothing" ? */}
-              <div className="flex flex-col w-[40%] tab:w-[30%] lap:w-[15%] h-52 tab:h-72 mx-2 my-5 bg-slate-100" key={items.id}>
+              <div className="flex flex-col w-[40%] tab:w-[30%] lap:w-[15%] h-52 tab:h-72 mx-2 my-5 bg-slate-100" key={items.id} onClick={()=>{addToCart(items)}}>
               <div className="h-[55%] bg-slate-600">
                 <img src={items.image} alt="" className="h-full w-full object-cover"/>
               </div>

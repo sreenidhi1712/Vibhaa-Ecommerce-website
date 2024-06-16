@@ -5,7 +5,9 @@ export const Context = createContext();
 const ContextProvider = (props) => {
 	
 	const [isOpen, setIsOpen] = useState(false);
-	const [Toggle,setToggle] = useState(true)
+	const [Toggle,setToggle] = useState(true);
+	const [Cart,setCart] = useState([]);
+	const [favourites,setFavourites] = useState([]);
 
 	
 
@@ -13,7 +15,11 @@ const ContextProvider = (props) => {
 		isOpen,
 		setIsOpen,
 		Toggle,
-		setToggle
+		setToggle,
+		Cart,
+		setCart,
+		favourites,
+		setFavourites
 	};
 
 	return (

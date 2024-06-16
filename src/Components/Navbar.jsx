@@ -3,11 +3,12 @@ import { CiMenuFries } from "react-icons/ci";
 import {Context} from "./Context/Context";
 import { HiUserCircle } from "react-icons/hi2";
 import { FaShoppingCart } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 
   const { isOpen, setIsOpen,Toggle,setToggle } = useContext(Context);
+  const Navigate = useNavigate
  
 
   const toggleMenu = () => {
@@ -37,7 +38,8 @@ const Navbar = () => {
 
         </div>
         <div className="flex">
-          <FaShoppingCart className={`${Toggle?`text-black`:`text-gray-300`} h-6 w-6 mr-2`}/>
+          <FaShoppingCart className={`${Toggle?`text-black`:`text-gray-300`} h-6 w-6 mr-2`} onClick={()=>{Navigate('cart')}}/>
+
           <CiMenuFries  className={`${Toggle?`text-black`:`text-gray-300`}  h-6 w-10 z-20 lap:hidden`} onClick={toggleMenu}/>
         </div>
           
