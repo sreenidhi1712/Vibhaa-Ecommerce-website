@@ -6,7 +6,7 @@ const ContextProvider = (props) => {
 	
 	const [isOpen, setIsOpen] = useState(false);
 	const [Toggle,setToggle] = useState(true);
-	const [Cart,setCart] = useState([]);
+	const [cart,setCart] = useState([]);
 	const [favourites,setFavourites] = useState([]);
 
 	
@@ -16,7 +16,7 @@ const ContextProvider = (props) => {
 		setIsOpen,
 		Toggle,
 		setToggle,
-		Cart,
+		cart,
 		setCart,
 		favourites,
 		setFavourites

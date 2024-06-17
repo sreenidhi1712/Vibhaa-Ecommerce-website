@@ -12,7 +12,7 @@ function App() {
 
     <BrowserRouter>
   
-  
+
     <ContextProvider>
      <Mainpage/>
     </ContextProvider>
