@@ -9,6 +9,7 @@ import { TbBrandSentry } from "react-icons/tb";
 import { TbBrandSnapseed } from "react-icons/tb";
 import { TbBrandStocktwits } from "react-icons/tb";
 import { TbBrandSublimeText } from "react-icons/tb";
+import { IoBagAddSharp } from "react-icons/io5";
 import axios from 'axios';
 
 function Maincontent() {
@@ -39,8 +40,15 @@ function Maincontent() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true, 
-    autoplaySpeed: 400,
+    autoplaySpeed: 1000,
     responsive: [
+      {
+        breakpoint: 2561, // max-width for desktop
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
       {
         breakpoint: 1441, // max-width for desktop
         settings: {
@@ -79,19 +87,25 @@ function Maincontent() {
     setCart,
   } = useContext(Context);
 
+  
   const addToCart = (item) => {
-    setCart(prevCart => {
-      const findIndex = prevCart.findIndex(cartItem => cartItem.id === item.id);
+    setCart((prevCart) => {
+      const findIndex = prevCart.findIndex((cartItem) => cartItem.id === item.id);
       if (findIndex >= 0) {
         const newCart = [...prevCart];
-        newCart[findIndex].rating.quantity += 1;
+        newCart[findIndex] = {
+          ...newCart[findIndex],
+          rating: {
+            ...newCart[findIndex].rating,
+                count: newCart[findIndex].rating.count + 1,
+          },
+        };
         return newCart;
       } else {
         return [...prevCart, { ...item, rating: { ...item.rating, quantity: 1 } }];
       }
     });
   };
-
 
 
   return (
@@ -164,19 +178,10 @@ function Maincontent() {
           <div className="mt-10 flex w-[95%] flex-wrap flex-shrink-0 justify-evenly tab:w-[85%]">
             {/* Products start here */}
             {data.map((items)=>{
-              return <>
+              return <Productitems items={items} addToCart={addToCart}/>
             {/* {items.category === "women's clothing" ? */}
-              <div className="flex flex-col w-[40%] tab:w-[30%] lap:w-[15%] h-52 tab:h-72 mx-2 my-5 bg-slate-100" key={items.id} onClick={()=>{addToCart(items)}}>
-              <div className="h-[55%] bg-slate-600">
-                <img src={items.image} alt="" className="h-full w-full object-cover"/>
-              </div>
-              <div>
-                <p className="mt-2 ml-1 font-semibold">{items.title.slice(0,10)}</p>
-                <p className="text-sm ml-1">{items.category}</p>
-                <p className="ml-1">${items.price}</p>
-              </div>
-            </div> {/* :""}*/}
-              </>
+              {/* :""}*/}
+             
                 })}
           
             {/* <div className="flex flex-col w-[45%] h-52 mx-2 my-2 bg-white">
@@ -229,3 +234,22 @@ function Maincontent() {
 }
 
 export default Maincontent;
+
+
+const Productitems = ({items,addToCart})=>{
+  return (
+    <>
+ <div className="flex flex-col w-[40%] tab:w-[30%] lap:w-[15%] h-52 tab:h-72 mx-2 my-5 bg-slate-100 group" key={items.id} >
+              <div className='relative left-[85%] top-3 invisible group-hover:visible'><IoBagAddSharp className="h-6 w-6 " onClick={()=>{addToCart(items)}} /></div>
+              <div className="h-[55%] bg-slate-600">
+                <img src={items.image} alt="" className="h-full w-full object-cover"/>
+              </div>
+              <div>
+                <p className="mt-2 ml-1 font-semibold">{items.title.slice(0,10)}</p>
+                <p className="text-sm ml-1">{items.category}</p>
+                <p className="ml-1">${items.price}</p>
+              </div>
+            </div>
+    </>
+  );
+}

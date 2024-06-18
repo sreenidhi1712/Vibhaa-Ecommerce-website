@@ -4,6 +4,9 @@ import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
+import { BsFillBagPlusFill } from "react-icons/bs";
+
+
 
 function Cart() {
     const {
@@ -61,23 +64,27 @@ function Cart() {
   return (
     <div className='h-auto w-screen'>
       <div className='flex h-50  w-full items-center justify-center mt-20' >
-        <h1 className='text-4xl font-semibold  py-5' onClick={()=>navigate('/')}>Cart</h1>
+        <h1 className='text-4xl font-semibold tab:text-5xl lapl:text-7xl  py-5' onClick={()=>navigate('/')}>Cart</h1>
       </div>
       <div className="flex flex-col items-center bg-slate-100 w-full" >
       <div className='hidden  lap:flex w-[95%] ' >
-       <div className='flex flex-col w-full mt-10 lap:flex lap:flex-row '>
-           <div className=' h-14 w-full flex items-center justify-end' ></div>
-           <div className=' h-auto py-5 w-full flex justify-center'> </div>
-           <div className=' h-14 w-full  flex justify-center' ><p>Products</p></div>
-           <div className=' h-14 w-full  flex justify-center'><p>Price</p></div>
-           <div className=' h-14 w-full flex justify-center'><p>Quantity</p></div>
-           <div className=' h-14 w-full  border-b-slate-200 flex justify-center'><p>SubTotal</p></div>
-       </div>
+      {cart.length > 0 && (
+        <div className={`flex flex-col w-full mt-10 lap:flex lap:flex-row`}>
+          {/* Your cart item headers */}
+          <div className='h-14 w-full flex items-center justify-end'></div>
+          <div className='h-auto py-5 w-full flex justify-center'></div>
+          <div className='h-14 w-full flex justify-center'><p>Products</p></div>
+          <div className='h-14 w-full flex justify-center'><p>Price</p></div>
+          <div className='h-14 w-full flex justify-center'><p>Quantity</p></div>
+          <div className='h-14 w-full border-b-slate-200 flex justify-center'><p>SubTotal</p></div>
+        </div>
+      )}
       </div>
         {cart.map((items) => (
-           <CartItem  key={items.id} items={items} RemoveItem={RemoveItem} increment={increment} decrement={decrement}/>
+           <CartItem  key={items.id} items={items} RemoveItem={RemoveItem} increment={increment} decrement={decrement} />
         ))}
         </div>
+        {cart.length > 0 ? 
         <div className='flex flex-col w-full items-center my-10 lap:items-end ' >
              <div className='w-[80%] flex justify-center border-[0.5px] lap:w-[30%] lap:mr-20'>
                <p className='py-5'>CartTotals</p>
@@ -93,7 +100,7 @@ function Cart() {
                 </div>
                 <button className='w-[90%] h-10 bg-blue-600 mt-5 mb-5'>Checkout</button>
              </div>
-        </div>
+        </div> : <div className='flex  flex-col items-center mt-20'> <BsFillBagPlusFill className='h-28 w-28 '/><p className='text-4xl  mt-10'>Your Cart is Empty</p></div> } 
     </div>
   )
 }
@@ -104,6 +111,7 @@ export default Cart
 const CartItem = ({items,RemoveItem,increment,decrement})=>{
   return(
        <>
+         
              <div className='flex flex-col w-[80%] mt-10 lap:mt-0 lap:flex lap:flex-row lap:w-[95%]'>
            <div className=' h-14 w-full  border-t-[0.5px] flex items-center justify-end lap:justify-center lap:py-5' ><MdOutlineCancel onClick={()=>{RemoveItem(items.id)}} className='h-5 w-5'/></div>
            <div className=' h-auto py-5  w-full  border-t-[0.5px] flex justify-center lap:items-center lap:py-5'> <img src={items.image} alt="" className="h-14 w-14 object-cover "/></div>
