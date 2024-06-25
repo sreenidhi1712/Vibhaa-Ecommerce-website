@@ -1,5 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
-import { Context } from "./Context/Context";
+import React from "react";
 import { BsGlobeCentralSouthAsia } from "react-icons/bs";
 import { CiDiscount1 } from "react-icons/ci";
 import { GiDress } from "react-icons/gi";
@@ -11,7 +10,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 
 function FooterPart() {
-  const {} = useContext(Context);
+  
   
   
   return (

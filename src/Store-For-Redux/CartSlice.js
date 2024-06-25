@@ -9,18 +9,19 @@ import {createSlice} from '@reduxjs/toolkit'
         addtocart(state,action) {
             let find = state.findIndex(item=>item.id===action.payload.id)
             if(find>=0){
-                state[find].rating.quantity+=1;
+                state[find].rating.count+=1;
             
             }
             else{
                 state.push(action.payload);
+                
             }
                
         },
         decrement(state,action) {
             let find = state.findIndex(item=>item.id===action.payload.id)
-            if(state[find].rating.quantity>1){
-                state[find].rating.quantity-=1;
+            if(state[find].rating.count>1){
+                state[find].rating.count-=1;
             }
             else {
                 return state.filter(items=>items.id!==action.payload.id)
@@ -29,9 +30,12 @@ import {createSlice} from '@reduxjs/toolkit'
         },
         increment(state,action) {
             let find = state.findIndex(item=>item.id===action.payload.id)
-            state[find].rating.quantity+=1;
+            state[find].rating.count+=1;
         
         },
+        deleteitem(state,action){
+           return state.filter(items => items.id!==action.payload.id)
+        }
 
         
      
@@ -40,6 +44,6 @@ import {createSlice} from '@reduxjs/toolkit'
 
 })
 
-export  const {addtocart,decrement,increment} = CartSlice.actions;
+export  const {addtocart,decrement,increment,deleteitem} = CartSlice.actions;
 
 export default CartSlice.reducer;
