@@ -5,7 +5,7 @@ import Favourites from "./Favourite"
 export const CartStore = configureStore({
     reducer:{
         cart:CartReducer,
-        favourite:Favourites
+        favouriteItem:Favourites
     }
 
 });

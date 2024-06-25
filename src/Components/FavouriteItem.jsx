@@ -4,11 +4,15 @@ import { addtocart } from "../Store-For-Redux/CartSlice";
 import { useDispatch } from "react-redux";
 import {favouriting} from "../Store-For-Redux/Favourite";
 import { useSelector } from "react-redux";
+import { CiHeart } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
+
 
 function FavouriteItem() {
-
+ 
+  const navigate = useNavigate();
     const Dispatch = useDispatch();
- const favourites = useSelector(state=>state.favourite);
+ const favouritelist = useSelector(state=>state.favouriteItem);
 
  const addToCart = (item) => {
     Dispatch(addtocart(item));
@@ -17,18 +21,22 @@ function FavouriteItem() {
   const removefavourites = (item)=>{
     Dispatch(favouriting(item));
   }
+ 
 
   return (
-   <>
-   {favourites.length === 0 ? <>
-   {favourites.map((items)=>{
-              return <Products key={items.id} items={items} addToCart={addToCart} favouriting={removefavourites} favourites={favourites}/>   
+   <div className='mt-10 flex flex-col items-center'>
+   <div>
+    <p onClick={()=>navigate('/')} className='mt-10 text-black text-7xl '>Favourites</p>
+   </div>
+{favouritelist.length === 0 && <div className='flex  flex-col items-center mt-20'> <CiHeart  className='h-28 w-28 '/><p className='text-4xl  mt-10'>No favourites,please add some</p></div> }
+
+    <div className="mt-10 flex w-[95%] flex-wrap flex-shrink-0 justify-evenly  tab:w-[85%]">
+   {favouritelist.map((items)=>{
+           return <Products key={items.id} items={items} addToCart={addToCart} favouritings={removefavourites} favourites={favouritelist}/>  
                 })}
-                </>
-            : <h1>
-                ADD Your Favourites
-                </h1>}
-   </>
+                
+             </div> 
+   </div>
   )
 }
 

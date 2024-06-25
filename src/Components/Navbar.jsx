@@ -27,7 +27,7 @@ const Navbar = () => {
   }}>
         <div className="flex items-center">
         
-        <p className={`ml-2 font-bold text-black text-3xl z-20`} >VIBHAA</p> 
+        <p className={`ml-2 font-bold text-black text-3xl z-20`} onClick={()=>Navigate('/favourite')}>VIBHAA</p> 
 
         </div>
         <div className=" hidden lap:flex  lap:gap-8 ">

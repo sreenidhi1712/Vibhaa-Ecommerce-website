@@ -3,16 +3,15 @@ import {createSlice} from '@reduxjs/toolkit'
 
 
  const Favourite = createSlice({
-    name:"cart",
+    name:"favourite",
     initialState:[],
     reducers:{
         favouriting(state,action){
-            const { id } = action.payload;
-            const index = state.findIndex(item => item.id === id);
-            if (index === -1) {
+          let find = state.findIndex(item=>item.id===action.payload.id)
+            if (find === -1) {
               state.push(action.payload);
             } else {
-              state.splice(index, 1);
+              state.splice(find, 1);
             }
         },
       
