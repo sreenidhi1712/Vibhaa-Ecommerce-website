@@ -7,7 +7,6 @@
 <p>Features</p>
 <p>Responsive Design: The website is fully responsive, ensuring optimal viewing and interaction experience across a wide range of devices, from desktops to mobile phones.</p>
 <p>Shopping Cart: Add items to the cart, view selected items, adjust quantities, and proceed to checkout seamlessly.</p>
-<p>Order Tracking: Users can track their orders and view order history.</p>
 <p>favourites : Users can save their favourite items for later</p>
 <p>Technologies Used</p>
 <p>ReactJS: The core framework used for building the frontend of the application, enabling a dynamic and interactive user interface.</p>
