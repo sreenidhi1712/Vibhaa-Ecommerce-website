@@ -1,7 +1,6 @@
 import React ,{ useContext} from 'react'
 import { Context } from "./Context/Context";
 import { MdOutlineCancel } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
 import { BsFillBagPlusFill } from "react-icons/bs";
@@ -17,7 +16,7 @@ function Cart() {
    
   const dispatch  = useDispatch();
 
-      const navigate = useNavigate();
+     
 
       const incrementItem = (item) => {
         dispatch(increment(item))
@@ -35,7 +34,7 @@ function Cart() {
   return (
     <div className='h-auto w-screen'>
       <div className='flex h-50  w-full items-center justify-center mt-20' >
-        <h1 className='text-4xl font-semibold tab:text-5xl lapl:text-7xl  py-5' onClick={()=>navigate('/')}>Cart</h1>
+        <h1 className='text-4xl font-semibold tab:text-5xl lapl:text-7xl  py-5'>Cart</h1>
       </div>
       <div className="flex flex-col items-center bg-slate-100 w-full" >
       <div className='hidden  lap:flex w-[95%] ' >

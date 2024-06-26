@@ -3,10 +3,16 @@ import { CiMenuFries } from "react-icons/ci";
 import {Context} from "./Context/Context";
 import { HiUserCircle } from "react-icons/hi2";
 import { FaShoppingCart } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation  } from "react-router-dom";
 import Loader from "../Loader";
+import { FaHeart } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+  const currentlocation = useLocation();
+  const CartItems = useSelector(state=>state.cart)
 
   const { isOpen, setIsOpen, loading} = useContext(Context);
   const Navigate = useNavigate();
@@ -29,7 +35,7 @@ const Navbar = () => {
   }}>
         <div className="flex items-center">
         
-        <p className={`ml-2 font-bold text-black text-3xl z-20`} onClick={()=>Navigate('/favourite')}>VIBHAA</p> 
+        <p className={`ml-2 font-bold text-black text-3xl z-20`}>VIBHAA</p> 
 
         </div>
         <div className=" hidden lap:flex  lap:gap-8 ">
@@ -40,7 +46,15 @@ const Navbar = () => {
 
         </div>
         <div className="flex">
-          <FaShoppingCart className={`text-black h-6 w-6 mr-2 lap:mr-6`} onClick={()=>{Navigate('/cart')}}/>
+        {currentlocation.pathname === '/favourite' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6" onClick={()=>{Navigate('/')}}/>:  <FaHeart className={`text-black h-6 w-6 mr-2 lap:mr-6`} onClick={()=>{Navigate('/favourite')}}/>}
+          {currentlocation.pathname === '/cart' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6" onClick={()=>{Navigate('/')}}/>:<div className="relative">
+                  <FaShoppingCart className="text-black h-6 w-6 mr-2 lap:mr-6" onClick={() => { Navigate('/cart'); }} />
+                  {CartItems.length > 0 && (
+                    <span className="absolute -top-2 right-0 lap:right-2 h-5 w-5 bg-slate-300 text-black rounded-full flex items-center justify-center text-xs">
+                      {CartItems.length}
+                    </span>
+                  )}
+                </div>}
 
           <CiMenuFries  className={`text-black h-6 w-10 z-20 lap:hidden`} onClick={toggleMenu}/>
         </div>

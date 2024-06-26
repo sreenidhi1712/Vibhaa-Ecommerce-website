@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import {favouriting} from "../Store-For-Redux/Favourite";
 import { useSelector } from "react-redux";
 import { CiHeart } from "react-icons/ci";
-import { useNavigate } from 'react-router-dom';
+
 
 
 function FavouriteItem() {
  
-  const navigate = useNavigate();
+ 
     const Dispatch = useDispatch();
  const favouritelist = useSelector(state=>state.favouriteItem);
 
@@ -26,7 +26,7 @@ function FavouriteItem() {
   return (
    <div className='mt-10 flex flex-col items-center'>
    <div>
-    <p onClick={()=>navigate('/')} className='mt-10 text-black text-7xl '>Favourites</p>
+    <p className='mt-10 text-black text-7xl '>Favourites</p>
    </div>
 {favouritelist.length === 0 && <div className='flex  flex-col items-center mt-20'> <CiHeart  className='h-28 w-28 '/><p className='text-4xl  mt-10'>No favourites,please add some</p></div> }
 
