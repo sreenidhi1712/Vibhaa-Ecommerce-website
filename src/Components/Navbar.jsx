@@ -4,10 +4,11 @@ import {Context} from "./Context/Context";
 import { HiUserCircle } from "react-icons/hi2";
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Loader from "../Loader";
 
 const Navbar = () => {
 
-  const { isOpen, setIsOpen, } = useContext(Context);
+  const { isOpen, setIsOpen, loading} = useContext(Context);
   const Navigate = useNavigate();
  
 
@@ -18,6 +19,7 @@ const Navbar = () => {
 
   return (
     <>
+    {loading ? <Loader/> :
     <nav className={` bg-white w-screen h-14 fixed top-0 left-0  z-10 bg-opacity-50`}>
       <div className="h-full w-full flex items-center justify-between "   onClick={()=>{
     if(isOpen){
@@ -61,6 +63,7 @@ const Navbar = () => {
             
       
     </nav>
+    }
     </>
   );
 };

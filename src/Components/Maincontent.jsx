@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import {favouriting} from "../Store-For-Redux/Favourite";
 import { useSelector } from "react-redux";
 import Products from "./Products";
+import Loader from "../Loader";
 
 function Maincontent() {
 
@@ -22,16 +23,26 @@ function Maincontent() {
  const favourites = useSelector(state=>state.favouriteItem);
 
   const [data, setData] = useState([]);
+
+  const {
+    isOpen,
+    setIsOpen,
+    loading,
+    setLoading
+  } = useContext(Context);
+
   
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://fakestoreapi.com/products?limit=50'); // Replace '/endpoint' with your API endpoint
+        const response = await axios.get('https://fakestoreapi.com/products?limit=50'); // https://fakestoreapi.com/products/category/men's%20clothing
         const jsonData = response.data; // Assuming response.data is already JSON
         setData(jsonData);
       
       } catch (error) {
         console.log(error);
+      }finally{
+        setLoading(false);
       }
     };
 
@@ -87,10 +98,6 @@ function Maincontent() {
     ]
   };
 
-  const {
-    isOpen,
-    setIsOpen,
-  } = useContext(Context);
 
   
   const addToCart = (item) => {
@@ -103,6 +110,7 @@ function Maincontent() {
 
   return (
     <>
+    {loading ? <Loader/> : 
       <div className={`h-screen w-auto mt-14 lap:mt-0 overflow-x-hidden bg-white`} onClick={() => {
         if (isOpen) {
           setIsOpen(false);
@@ -191,6 +199,7 @@ function Maincontent() {
         </div>
         <FooterPart/>
       </div>
+      }
     </>
   );
 }
