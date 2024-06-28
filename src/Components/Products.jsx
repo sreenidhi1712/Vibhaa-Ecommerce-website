@@ -14,8 +14,8 @@ function Products({items,addToCart,favouritings,favourites}) {
                 <p className="ml-1">${items.price}</p>
               </div>
               <div className='w-[90%] h-[15%] mt-3 invisible group-hover:visible flex justify-between'>
-                <IoBagAddSharp className="h-6 w-6 text-gray-600" onClick={()=>{addToCart(items)}} />
-                <FaHeart className={`h-6 w-6 ml-2 ${favourites.some((favItem) => favItem.id === items.id) ? 'text-red-500' : 'text-gray-600'}`} onClick={()=>favouritings(items)}/>
+                <IoBagAddSharp className="h-6 w-6 text-gray-600 cursor-pointer" onClick={()=>{addToCart(items)}} />
+                <FaHeart className={`h-6 w-6 ml-2 cursor-pointer ${favourites.some((favItem) => favItem.id === items.id) ? 'text-red-500' : 'text-gray-600'}`} onClick={()=>favouritings(items)}/>
               </div>
   </div>
   )

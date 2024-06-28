@@ -83,15 +83,15 @@ const CartItem = ({items,RemoveItem,incrementItem,decrementItem})=>{
        <>
          
              <div className='flex flex-col w-[80%] mt-10 lap:mt-0 lap:flex lap:flex-row lap:w-[95%]'>
-           <div className=' h-14 w-full  border-t-[0.5px] flex items-center justify-end lap:justify-center lap:py-5' ><MdOutlineCancel onClick={()=>{RemoveItem(items)}} className='h-5 w-5'/></div>
+           <div className=' h-14 w-full  border-t-[0.5px] flex items-center justify-end lap:justify-center lap:py-5' ><MdOutlineCancel onClick={()=>{RemoveItem(items)}} className='h-5 w-5 cursor-pointer'/></div>
            <div className=' h-auto py-5  w-full  border-t-[0.5px] flex justify-center lap:items-center lap:py-5'> <img src={items.image} alt="" className="h-14 w-14 object-cover "/></div>
            <div className=' h-14 w-full  border-t-[0.5px] flex justify-between lap:justify-center lap:items-center lap:py-5' ><p className='lap:hidden'>Products</p><p className='font-bold'>{items.title.slice(0,10)}</p></div>
            <div className=' h-14 w-full border-t-[0.5px] flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>Price</p><p className='font-bold'>{items.price}</p></div>
            <div className=' h-14 w-full  border-t-[0.5px] flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>Quantity</p>
            <div className='flex gap-5 items-center lap:justify-center lap:py-5'>
-            <button className='font-bold' onClick={()=>incrementItem(items)}><CiCirclePlus/></button>
+            <button className='font-bold cursor-pointer' onClick={()=>incrementItem(items)}><CiCirclePlus/></button>
             <p className='font-bold' >{items.rating.count}</p>
-            <button className='font-bold' onClick={()=>decrementItem(items)}><CiCircleMinus/></button>
+            <button className='font-bold cursor-pointer' onClick={()=>decrementItem(items)}><CiCircleMinus/></button>
             </div>
             </div>
            <div className=' h-14 w-full  border-t-[0.5px] border-b-slate-200 flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>SubTotal</p><p className='font-bold'>{items.rating.count*items.price}</p></div>

@@ -46,9 +46,9 @@ const Navbar = () => {
 
         </div>
         <div className="flex">
-        {currentlocation.pathname === '/favourite' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6" onClick={()=>{Navigate('/')}}/>:  <FaHeart className={`text-black h-6 w-6 mr-2 lap:mr-6`} onClick={()=>{Navigate('/favourite')}}/>}
-          {currentlocation.pathname === '/cart' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6" onClick={()=>{Navigate('/')}}/>:<div className="relative">
-                  <FaShoppingCart className="text-black h-6 w-6 mr-2 lap:mr-6" onClick={() => { Navigate('/cart'); }} />
+        {currentlocation.pathname === '/favourite' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>{Navigate('/')}}/>:  <FaHeart className={`text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer`} onClick={()=>{Navigate('/favourite')}}/>}
+          {currentlocation.pathname === '/cart' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>{Navigate('/')}}/>:<div className="relative">
+                  <FaShoppingCart className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={() => { Navigate('/cart'); }} />
                   {CartItems.length > 0 && (
                     <span className="absolute -top-2 right-0 lap:right-2 h-5 w-5 bg-slate-300 text-black rounded-full flex items-center justify-center text-xs">
                       {CartItems.length}
@@ -56,7 +56,7 @@ const Navbar = () => {
                   )}
                 </div>}
 
-          <CiMenuFries  className={`text-black h-6 w-10 z-20 lap:hidden`} onClick={toggleMenu}/>
+          <CiMenuFries  className={`text-black h-6 w-10 z-20 lap:hidden cursor-pointer`} onClick={toggleMenu}/>
         </div>
           
       </div>
