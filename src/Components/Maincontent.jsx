@@ -16,6 +16,10 @@ import {favouriting} from "../Store-For-Redux/Favourite";
 import { useSelector } from "react-redux";
 import Products from "./Products";
 import Loader from "../Loader";
+import bgimage1 from "../assets/pexels-photo-1267369.jpeg";
+import bgimage2 from "../assets/pexels-photo-1496647.jpeg";
+import bgimage3 from "../assets/pexels-photo-375880.jpeg";
+import coverimg from "../assets/pexels-photo-58592.jpeg";
 
 function Maincontent() {
 
@@ -116,7 +120,7 @@ function Maincontent() {
           setIsOpen(false);
         }
       }}>
-        <div className="w-full h-2/3 bg-gradient-text flex flex-col tab:items-start bg-[url('https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?cs=tinysrgb')] bg-cover bg-center">
+        <div className="w-full h-2/3 bg-gradient-text flex flex-col tab:items-start  bg-cover bg-center" style={{backgroundImage:`url(${coverimg})`}}>
           {/* First Card */}
           <div className="flex flex-col h-[58%] w-full tab:w-[60%] tab:ml-10">
             <p className="text-3xl text-white text-center mt-16 font-extrabold tab:text-left tab:text-5xl tab:font-semibold">Raining Offers for this Monsoon!</p>
@@ -150,21 +154,21 @@ function Maincontent() {
         </div>
         {/* Secondary cards start here */}
         <div className="w-full h-auto flex flex-col items-center tab:flex-row tab:justify-evenly">
-          <div className="w-[90%] tab:w-[30%]  h-96  bg-slate-500 flex flex-col items-center tab:justify-end bg-[url('https://images.pexels.com/photos/1267369/pexels-photo-1267369.jpeg?cs=tinysrgb')] bg-cover bg-center">
+          <div className="w-[90%] tab:w-[30%]  h-96  bg-slate-500 flex flex-col items-center tab:justify-end  bg-cover bg-center" style={{backgroundImage:`url(${bgimage1})`}}>
             <div className="h-2/3 w-full flex flex-col justify-end">
               <p className="pl-2 text-white font-bold">20% Off on Tank Tops</p>
               <p className="pl-2 text-white font-bold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, necessitatibus!</p>
             </div>
             <button className="mt-3 h-10 w-5/6  tab:mb-3 bg-white font-semibold">SHOP NOW</button>
           </div>
-          <div className="w-[90%] tab:w-[30%]  h-96 bg-slate-500 mt-5 tab:mt-0 flex flex-col  tab:justify-end items-center bg-[url('https://images.pexels.com/photos/375880/pexels-photo-375880.jpeg?cs=tinysrgb')] bg-cover bg-center">
+          <div className="w-[90%] tab:w-[30%]  h-96 bg-slate-500 mt-5 tab:mt-0 flex flex-col  tab:justify-end items-center  bg-cover bg-center" style={{backgroundImage:`url(${bgimage2})`}}>
             <div className="h-2/3 w-full flex flex-col justify-end">
               <p className="pl-2 font-bold text-white">20% Off on Tank Tops</p>
               <p className="pl-2 font-bold text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, necessitatibus!</p>
             </div>
             <button className="mt-3 h-10 w-5/6  tab:mb-3 bg-white font-semibold">SHOP NOW</button>
           </div>
-          <div className="w-[90%] tab:w-[30%]  h-96 bg-slate-500 mt-5 tab:mt-0 flex flex-col  tab:justify-end items-center bg-[url('https://images.pexels.com/photos/1496647/pexels-photo-1496647.jpeg?cs=tinysrgb')] bg-cover bg-center">
+          <div className="w-[90%] tab:w-[30%]  h-96 bg-slate-500 mt-5 tab:mt-0 flex flex-col  tab:justify-end items-center  bg-cover bg-center" style={{backgroundImage:`url(${bgimage3})`}}>
             <div className="h-2/3 w-full flex flex-col justify-end">
               <p className="pl-2 font-bold text-white">20% Off on Tank Tops</p>
               <p className="pl-2 font-bold text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, necessitatibus!</p>
