@@ -46,7 +46,7 @@ const Navbar = () => {
 
         </div>
         <div className="flex">
-        {currentlocation.pathname === '/favourite' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>{Navigate('/')}}/>:  <FaHeart className={`text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer`} onClick={()=>{Navigate('/favourite')}}/>}
+        {currentlocation.pathname === '/favourite' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>{Navigate('/')}}/>:  <FaHeart className={`text-black h-6 w-6  lap:mr-6 cursor-pointer mr-3`} onClick={()=>{Navigate('/favourite')}}/>}
           {currentlocation.pathname === '/cart' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>{Navigate('/')}}/>:<div className="relative">
                   <FaShoppingCart className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={() => { Navigate('/cart'); }} />
                   {CartItems.length > 0 && (
