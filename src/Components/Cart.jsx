@@ -1,4 +1,4 @@
-import React ,{ useContext} from 'react'
+import React ,{ useState,useEffect} from 'react'
 import { Context } from "./Context/Context";
 import { MdOutlineCancel } from "react-icons/md";
 import { CiCirclePlus } from "react-icons/ci";
@@ -15,8 +15,14 @@ function Cart() {
   const CartItems = useSelector(state=>state.cart)
    
   const dispatch  = useDispatch();
-
-     
+const [total ,setTotal] = useState(0)
+useEffect(() => {
+  let newTotal = 0;
+  CartItems.forEach(item => {
+    newTotal += item.rating.count * item.price;
+  });
+  setTotal(newTotal);
+}, [CartItems]);
 
       const incrementItem = (item) => {
         dispatch(increment(item))
@@ -62,11 +68,11 @@ function Cart() {
              <div className='w-[80%] flex flex-col items-center border-[0.5px] lap:w-[30%] lap:mr-20'>
                 <div className='flex justify-between w-[90%] py-5 border-b-[0.5px]'>
                    <p>Subtotal</p>
-                   <p>0</p>
+                   <p>${total}</p>
                 </div>
                 <div className='flex justify-between w-[90%] py-5 border-b-[0.5px]'>
                    <p>Total</p>
-                   <p>0</p>
+                   <p>${total}</p>
                 </div>
                 <button className='w-[90%] h-10 bg-blue-600 mt-5 mb-5'>Checkout</button>
              </div>
@@ -79,6 +85,7 @@ export default Cart
 
 
 const CartItem = ({items,RemoveItem,incrementItem,decrementItem})=>{
+
   return(
        <>
          
@@ -86,7 +93,7 @@ const CartItem = ({items,RemoveItem,incrementItem,decrementItem})=>{
            <div className=' h-14 w-full  border-t-[0.5px] flex items-center justify-end lap:justify-center lap:py-5' ><MdOutlineCancel onClick={()=>{RemoveItem(items)}} className='h-5 w-5 cursor-pointer'/></div>
            <div className=' h-auto py-5  w-full  border-t-[0.5px] flex justify-center lap:items-center lap:py-5'> <img src={items.image} alt="" className="h-14 w-14 object-cover "/></div>
            <div className=' h-14 w-full  border-t-[0.5px] flex justify-between lap:justify-center lap:items-center lap:py-5' ><p className='lap:hidden'>Products</p><p className='font-bold'>{items.title.slice(0,10)}</p></div>
-           <div className=' h-14 w-full border-t-[0.5px] flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>Price</p><p className='font-bold'>{items.price}</p></div>
+           <div className=' h-14 w-full border-t-[0.5px] flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>Price</p><p className='font-bold'>${items.price}</p></div>
            <div className=' h-14 w-full  border-t-[0.5px] flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>Quantity</p>
            <div className='flex gap-5 items-center lap:justify-center lap:py-5'>
             <button className='font-bold cursor-pointer' onClick={()=>incrementItem(items)}><CiCirclePlus/></button>
@@ -94,7 +101,7 @@ const CartItem = ({items,RemoveItem,incrementItem,decrementItem})=>{
             <button className='font-bold cursor-pointer' onClick={()=>decrementItem(items)}><CiCircleMinus/></button>
             </div>
             </div>
-           <div className=' h-14 w-full  border-t-[0.5px] border-b-slate-200 flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>SubTotal</p><p className='font-bold'>{items.rating.count*items.price}</p></div>
+           <div className=' h-14 w-full  border-t-[0.5px] border-b-slate-200 flex justify-between lap:justify-center lap:items-center lap:py-5'><p className='lap:hidden'>SubTotal</p><p className='font-bold'>${items.rating.count*items.price}</p></div>
       </div>
            {/* <div className="h-[55%] bg-slate-600">
             
