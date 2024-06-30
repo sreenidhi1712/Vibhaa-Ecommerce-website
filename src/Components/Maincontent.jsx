@@ -39,8 +39,8 @@ function Maincontent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://fakestoreapi.com/products?limit=50'); // https://fakestoreapi.com/products/category/men's%20clothing
-        const jsonData = response.data; // Assuming response.data is already JSON
+        const response = await axios.get('https://fakestoreapi.com/products?limit=50'); 
+        const jsonData = response.data; 
         setData(jsonData);
       
       } catch (error) {
@@ -183,6 +183,7 @@ function Maincontent() {
           <div className="mt-10 flex w-[95%] flex-wrap flex-shrink-0 justify-evenly tab:w-[85%]">
             {/* Products start here */}
             {data.map((items)=>{
+            
               return <Products key={items.id} items={items} addToCart={addToCart} favouritings={addtofavourites} favourites={favourites}/>
             {/* {items.category === "women's clothing" ? */}
               {/* :""}*/}

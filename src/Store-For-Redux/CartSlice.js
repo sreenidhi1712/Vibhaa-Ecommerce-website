@@ -13,7 +13,7 @@ import {createSlice} from '@reduxjs/toolkit'
             
             }
             else{
-                state.push(action.payload);
+                state.push({ ...action.payload, rating: { ...action.payload.rating, count: 1 } }); 
                 
             }
                
