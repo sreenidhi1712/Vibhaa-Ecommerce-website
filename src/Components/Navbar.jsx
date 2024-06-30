@@ -18,10 +18,7 @@ const Navbar = () => {
   const Navigate = useNavigate();
  
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+ 
 
   return (
     <>
@@ -46,9 +43,26 @@ const Navbar = () => {
 
         </div>
         <div className="flex">
-        {currentlocation.pathname === '/favourite' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>{Navigate('/')}}/>:  <FaHeart className={`text-black h-6 w-6  lap:mr-6 cursor-pointer mr-3`} onClick={()=>{Navigate('/favourite')}}/>}
-          {currentlocation.pathname === '/cart' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>{Navigate('/')}}/>:<div className="relative">
-                  <FaShoppingCart className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={() => { Navigate('/cart'); }} />
+        {currentlocation.pathname === '/favourite' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>
+          {
+            Navigate('/');
+            navigator.vibrate(100);
+          }}/>:  <FaHeart className={`text-black h-6 w-6  lap:mr-6 cursor-pointer mr-3`} onClick={()=>
+          {
+            Navigate('/favourite');
+            navigator.vibrate(100);
+            }}/>}
+          {currentlocation.pathname === '/cart' ? <FaHome className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={()=>
+            {
+              Navigate('/');
+              navigator.vibrate(100);
+
+            }}/>:<div className="relative">
+                  <FaShoppingCart className="text-black h-6 w-6 mr-2 lap:mr-6 cursor-pointer" onClick={() => 
+                    {
+                       Navigate('/cart');
+                       navigator.vibrate(100);
+                        }} />
                   {CartItems.length > 0 && (
                     <span className="absolute -top-2 right-0 lap:right-2 h-5 w-5 bg-slate-300 text-black rounded-full flex items-center justify-center text-xs">
                       {CartItems.length}
@@ -56,7 +70,11 @@ const Navbar = () => {
                   )}
                 </div>}
 
-          <CiMenuFries  className={`text-black h-6 w-10 z-20 lap:hidden cursor-pointer`} onClick={toggleMenu}/>
+          <CiMenuFries  className={`text-black h-6 w-10 z-20 lap:hidden cursor-pointer`} onClick={()=>
+            {
+              setIsOpen(!isOpen);
+              navigator.vibrate(100);
+              }}/>
         </div>
           
       </div>
